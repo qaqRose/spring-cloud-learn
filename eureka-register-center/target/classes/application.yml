@@ -1,0 +1,18 @@
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: localhost
+  ## 注册中心 本质也是一个客户端
+  client:
+    ## 注册到 Eureka
+    registerWithEureka: false
+    fetchRegistry: false
+    # 来表明自己是一个 eureka server
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: eurka-register-center
